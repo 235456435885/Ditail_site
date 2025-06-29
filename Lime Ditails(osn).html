@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lime Details — Магазин автозапчастей</title>
+    <link rel="stylesheet" href="Lime Ditails(osn_css).css">
+    <link rel="stylesheet" href="userProfile.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header" style="position: relative; background-color: #1b1c1c;">
+        <div class="container header__wrapper" style="position: relative; width: 100%;">
+
+            <!-- Лупа -->
+            <div class="header__search" style="position: relative; z-index: 10;">
+                <button id="searchToggle" class="search-icon" aria-label="Открыть поиск">
+                    <img src="картинки/иконки/search.webp" alt="Поиск">
+                </button>
+            </div>
+
+            <!-- Поисковая строка -->
+            <div class="search-expanded" aria-hidden="true">
+                <input type="text" placeholder="Введите запрос..." class="search-expanded__input" />
+                <button id="searchClose" class="search-expanded__close" aria-label="Закрыть поиск">&times;</button>
+            </div>
+
+            <!-- Остальной контент шапки -->
+            <div class="header__content">
+                <div class="dropdown">
+                    <button class="dropbtn has-submenu">Каталог</button>
+                    <div class="dropdown-content vertical-menu">
+                        <ul>
+                            <li>
+                                <a href="#" class="has-submenu">Все каталоги</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Общий каталог</a></li>
+                                    <li><a href="#">Оригинальные каталоги</a></li>
+                                    <li><a href="#">Аксессуары</a></li>
+                                    <li><a href="#">Запчасти для ТО</a></li>
+                                    <li><a href="#">Мотокаталоги</a></li>
+                                    <li><a href="#">Отечественные марки, мотоциклы</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="has-submenu">Масла и автохимия</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Масла моторные</a></li>
+                                    <li><a href="#">Масла трансмиссионные</a></li>
+                                    <li><a href="#">Жидкости для омывателя стекла</a></li>
+                                    <li><a href="#">Жидкости тормозные</a></li>
+                                    <li><a href="#">Жидкости охлаждающие</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="has-submenu">Шины, диски</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Шины летние</a></li>
+                                    <li><a href="#">Шины зимние</a></li>
+                                    <li><a href="#">Диски колёсные, литые</a></li>
+                                    <li><a href="#">Диски колесные, штампованные</a></li>
+                                    <li><a href="#">Шины мотоциклетные</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="has-submenu">Автоэлектроника</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Лампы</a></li>
+                                    <li><a href="#">Аккумуляторы</a></li>
+                                    <li><a href="#">Камеры заднего вида</a></li>
+                                    <li><a href="#">Предохранители</a></li>
+                                    <li><a href="#">Парковочные радары</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="has-submenu">Остальное</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Электрооборудование</a></li>
+                                    <li><a href="#">Инструмент</a></li>
+                                    <li><a href="#">Автоаксессуары</a></li>
+                                    <li><a href="#">Все для автосервиса</a></li>
+                                    <li><a href="#">Щётки стеклоочистителя</a></li>
+                                    <li><a href="#">Одежда и экипировка</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+                <nav class="main-nav">
+                    <a href="#delivery">Оплата и доставка</a>
+                    <a href="#about">О нас</a>
+                    <a href="#contacts">Контакты</a>
+                </nav>
+
+                <div class="logo">
+                    <a href="Lime Ditails(osn).html" aria-label="Перейти на главную">Lime Details</a>
+                </div>
+
+
+                <div class="work-time">Пн–Вс: 10:00–20:00</div>
+
+                <div class="phone">
+                    <a href="tel:+375291112233">+375 (29) 111-22-33</a>
+                </div>
+
+                <div class="account-login">
+                    <a href="auth.html" class="login-link">Вход в аккаунт</a>
+                </div>
+
+
+                <div class="cart click-spark-container">
+                    <a href="#">
+                        <img src="картинки/иконки/cart.webp" alt="Корзина">
+                    </a>
+                </div>
+
+            </div>
+    </header>
+
+    <!-- Слайдер -->
+    <section class="promo-carousel">
+        <div class="container">
+            <h2 class="promo-carousel__title">Акции</h2>
+            <div class="promo-carousel__wrapper">
+                <button class="promo-carousel__btn promo-carousel__btn--prev" aria-label="Назад">‹</button>
+
+                <div class="promo-carousel__track-wrapper">
+                    <ul class="promo-carousel__track">
+                        <li class="promo-carousel__item">
+                            <div class="promo-card">
+                                <img src="картинки/карусель/5w-30_ravenol.webp" alt="Товар 1" class="promo-card__img" />
+                                <h3 class="promo-card__title">Масло Ravenol 5W-30</h3>
+                                <p class="promo-card__price">
+                                    <span class="price-wrapper">
+                                        <span class="old-price">9546 ₽</span>
+                                        <span class="new-price">8700 ₽</span>
+                                    </span>
+                                </p>
+                                <a href="#" class="promo-card__btn">Купить</a>
+                            </div>
+                        </li>
+                        <li class="promo-carousel__item">
+                            <div class="promo-card">
+                                <img src="картинки/карусель/Фильтр_HF152.webp" alt="Товар 2" class="promo-card__img" />
+                                <h3 class="promo-card__title">Фильтр масляный HF152</h3>
+                                <p class="promo-card__price">
+                                    <span class="price-wrapper">
+                                        <span class="old-price">761 ₽</span>
+                                        <span class="new-price">550 ₽</span>
+                                    </span>
+                                </p>
+                                <a href="#" class="promo-card__btn">Купить</a>
+                            </div>
+                        </li>
+                        <li class="promo-carousel__item">
+                            <div class="promo-card">
+                                <img src="картинки/карусель/правый_рычаг_мазда3.webp" alt="Товар 3" class="promo-card__img" />
+                                <h3 class="promo-card__title">Правый рычаг Мазда 3</h3>
+                                <p class="promo-card__price">
+                                    <span class="price-wrapper">
+                                        <span class="old-price">7035 ₽</span>
+                                        <span class="new-price">6500 ₽</span>
+                                    </span>
+                                </p>
+                                <a href="#" class="promo-card__btn">Купить</a>
+                            </div>
+                        <li class="promo-carousel__item">
+                            <div class="promo-card">
+                                <img src="картинки/карусель/Фара_передняя_на_Мерседес_S-class_W222.webp" alt="Товар 4" class="promo-card__img" />
+                                <h3 class="promo-card__title">Фара передняя на Мерседес S</h3>
+                                <p class="promo-card__price">
+                                    <span class="price-wrapper">
+                                        <span class="old-price">78000 ₽</span>
+                                        <span class="new-price">67999 ₽</span>
+                                    </span>
+                                </p>
+                                <a href="#" class="promo-card__btn">Купить</a>
+                            </div>
+                        <li class="promo-carousel__item">
+                            <div class="promo-card">
+                                <img src="картинки/карусель/Тормозная_жидкость_Luxe_Dot-4.webp" alt="Товар 5" class="promo-card__img" />
+                                <h3 class="promo-card__title">Тормозная жидкость Luxe Dot-4</h3>
+                                <p class="promo-card__price">
+                                    <span class="price-wrapper">
+                                        <span class="old-price">506 ₽</span>
+                                        <span class="new-price">410 ₽</span>
+                                    </span>
+                                </p>
+                                <a href="#" class="promo-card__btn">Купить</a>
+                            </div>
+                        </li>
+                        </li>
+                        </li>
+                        <!-- Добавь еще карточки товаров -->
+                    </ul>
+                </div>
+
+                <button class="promo-carousel__btn promo-carousel__btn--next" aria-label="Вперед">›</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Преимущества -->
+    <section class="features" id="delivery">
+        <div class="container">
+            <div class="features__grid">
+                <div class="feature-item feature-wide">
+                    <img src="картинки/приеимущества/delivery-and-payment-box.webp" alt="Быстрая доставка" />
+                    <div class="feature-text">
+                        <p>Выбирайте способ доставки, который подходит именно вам:</p>
+                        <br>
+                        <ul>
+                            <li>Курьерская доставка по Липецку за 1-2 дня</li>
+                            <li>Почтовая доставка по России — от 3 до 7 дней</li>
+                            <li>Самовывоз из магазина без ожидания</li>
+                            <li>Бесплатная доставка при заказе от 5000 ₽</li>
+                            <li>Безопасная упаковка гарантирует целостность товара</li>
+                        </ul>
+                        <br>
+                        <p>Оформляйте заказ легко, мы позаботимся о доставке!</p>
+                        <a href="Delivery.html" class="feature-link">Подробнее →</a>
+                    </div>
+                </div>
+
+                <div class="feature-row">
+                    <div class="feature-item feature-wide feature-guarantee">
+                        <img src="картинки/приеимущества/гарантия.webp" alt="Гарантия качества" />
+                        <div class="feature-text">
+                            <p>Гарантия 12 месяцев на все товары без исключения.</p>
+                            <a href="Warranty.html" class="feature-link">Подробнее →</a>
+                        </div>
+                    </div>
+                    <div class="feature-item feature-right feature-guarantee">
+                        <img src="картинки/приеимущества/поддержка.webp" alt="Поддержка" />
+                        <div class="feature-text">
+                            <p>Круглосуточная поддержка — мы всегда на связи и готовы помочь.</p>
+                            <a href="support.html" class="feature-link">Подробнее →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Категории -->
+    <section class="categories">
+        <div class="container">
+            <h2>Категории товаров</h2>
+            <div class="categories__grid custom-grid">
+                <a href="/catalog/all" class="category-card">
+                    <img src="картинки/каталог/все каталоги.webp" alt="Все каталоги" />
+                    <h3>Все каталоги</h3>
+                </a>
+                <a href="/catalog/oils-chemistry" class="category-card">
+                    <img src="картинки/каталог/masla.webp" alt="Масла и автохимия" />
+                    <h3>Масла и автохимия</h3>
+                </a>
+                <a href="/catalog/tires-wheels" class="category-card">
+                    <img src="картинки/каталог/шины.webp" alt="Шины и диски" />
+                    <h3>Шины и диски</h3>
+                </a>
+                <a href="/catalog/electronics" class="category-card">
+                    <img src="картинки/каталог/автоэлектроника.webp" alt="Автоэлектроника" />
+                    <h3>Автоэлектроника</h3>
+                </a>
+                <a href="/catalog/other" class="category-card">
+                    <img src="картинки/каталог/остальное.webp" alt="Остальное" />
+                    <h3>Остальное</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section class="about-company" id="about">
+        <div class="container">
+            <h2>О компании Lime Details</h2>
+            <p>
+                Lime Details — надежный магазин автозапчастей с широким ассортиментом и выгодными ценами.
+                Мы работаем для вас уже более 10 лет, предлагая качественные товары от проверенных производителей.
+                Наша команда профессионалов всегда готова помочь с выбором и ответить на любые вопросы.
+                Мы ценим каждого клиента и стремимся сделать процесс покупки максимально удобным и быстрым.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Контакты -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <h2>Связаться с нами</h2>
+            <div class="contacts__info">
+                <p>Адрес: Минск, пр. Победителей, 15</p>
+                <p>Email: <a href="mailto:info@limedetails.by">info@limedetails.by</a></p>
+                <p>Телефон: <a href="tel:+375291112233">+375 (29) 111-22-33</a></p>
+            </div>
+
+            <div class="contacts__socials">
+                <a href="https://www.facebook.com/limedetails" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <img src="картинки/ico_контакты/Facebook.webp" alt="Facebook" />
+                </a>
+                <a href="https://www.instagram.com/limedetails" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <img src="картинки/ico_контакты/instagram.webp" alt="Instagram" />
+                </a>
+                <a href="https://www.vk.com/limedetails" target="_blank" rel="noopener noreferrer" aria-label="VK">
+                    <img src="картинки/ico_контакты/VK.webp" alt="VK" />
+                </a>
+                <a href="https://t.me/limedetails" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                    <img src="картинки/ico_контакты/Telegram.webp" alt="Telegram" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p>&copy; 2025 Lime Details. Все права защищены.</p>
+            <a href="#">Политика конфиденциальности</a>
+        </div>
+    </footer>
+
+    <script src="userAuth.js"></script>
+    <script src="Lime Ditails(osn_js).js"></script>
+    <script src="clickSpark.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            new ClickSpark(document.body, {
+                sparkColor: "#4fa690",
+                sparkSize: 10,
+                sparkRadius: 20,
+                sparkCount: 8,
+                duration: 400,
+                easing: "ease-out",
+                extraScale: 1.0,
+            });
+        });
+
+    </script>
+
+</body>
+</html>

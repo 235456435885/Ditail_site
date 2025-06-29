@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Профиль пользователя - Lime Details</title>
+    <link rel="stylesheet" href="Lime Ditails(osn_css).css">
+    <link rel="stylesheet" href="profile.css">
+    <!-- Подключаем стили для виджета профиля -->
+    <link rel="stylesheet" href="userProfile.css">
+</head>
+<body>
+
+    <!-- Шапка сайта (с полным каталогом) -->
+    <header class="header">
+        <div class="container header__wrapper">
+            <div class="header__search">
+                <button id="searchToggle" class="search-icon" aria-label="Открыть поиск">
+                    <img src="картинки/иконки/search.webp" alt="Поиск">
+                </button>
+            </div>
+
+            <div class="search-expanded" aria-hidden="true">
+                <input type="text" placeholder="Введите запрос..." class="search-expanded__input" />
+                <button id="searchClose" class="search-expanded__close" aria-label="Закрыть поиск">×</button>
+            </div>
+
+            <div class="header__content">
+                <div class="dropdown">
+                    <button class="dropbtn has-submenu">Каталог</button>
+                    <!-- ОБНОВЛЕНО: Полный каталог с главной страницы -->
+                    <div class="dropdown-content vertical-menu">
+                        <ul>
+                            <li>
+                                <a href="#" class="has-submenu">Все каталоги</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Общий каталог</a></li>
+                                    <li><a href="#">Оригинальные каталоги</a></li>
+                                    <li><a href="#">Аксессуары</a></li>
+                                    <li><a href="#">Запчасти для ТО</a></li>
+                                    <li><a href="#">Мотокаталоги</a></li>
+                                    <li><a href="#">Отечественные марки, мотоциклы</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="has-submenu">Масла и автохимия</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Масла моторные</a></li>
+                                    <li><a href="#">Масла трансмиссионные</a></li>
+                                    <li><a href="#">Жидкости для омывателя стекла</a></li>
+                                    <li><a href="#">Жидкости тормозные</a></li>
+                                    <li><a href="#">Жидкости охлаждающие</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="has-submenu">Шины, диски</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Шины летние</a></li>
+                                    <li><a href="#">Шины зимние</a></li>
+                                    <li><a href="#">Диски колёсные, литые</a></li>
+                                    <li><a href="#">Диски колесные, штампованные</a></li>
+                                    <li><a href="#">Шины мотоциклетные</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="has-submenu">Автоэлектроника</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Лампы</a></li>
+                                    <li><a href="#">Аккумуляторы</a></li>
+                                    <li><a href="#">Камеры заднего вида</a></li>
+                                    <li><a href="#">Предохранители</a></li>
+                                    <li><a href="#">Парковочные радары</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="has-submenu">Остальное</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Электрооборудование</a></li>
+                                    <li><a href="#">Инструмент</a></li>
+                                    <li><a href="#">Автоаксессуары</a></li>
+                                    <li><a href="#">Все для автосервиса</a></li>
+                                    <li><a href="#">Щётки стеклоочистителя</a></li>
+                                    <li><a href="#">Одежда и экипировка</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <nav class="main-nav">
+                    <a href="Lime Ditails(osn).html">Главная</a>
+                    <a href="Lime Ditails(osn).html#delivery">Доставка</a>
+                    <a href="Lime Ditails(osn).html#contacts">Контакты</a>
+                </nav>
+
+                <div class="logo">
+                    <a href="Lime Ditails(osn).html" aria-label="Перейти на главную">Lime Details</a>
+                </div>
+
+                <div class="work-time">Пн–Вс: 10:00–20:00</div>
+
+                <div class="phone">
+                    <a href="tel:+375291112233">+375 (29) 111-22-33</a>
+                </div>
+
+                <div class="account-login">
+                    <a href="#" id="logoutBtn" class="login-link">Выйти</a>
+                </div>
+
+                <div class="cart">
+                    <a href="#">
+                        <img src="картинки/иконки/cart.webp" alt="Корзина">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент профиля -->
+    <main class="profile-main">
+        <div class="container">
+            <div class="profile-container">
+                
+                <!-- Боковое меню -->
+                <aside class="profile-sidebar">
+                    <div class="profile-avatar">
+                        <img src="картинки/аватары/default-avatar.png" alt="Аватар пользователя" id="avatarImg">
+                        <button class="avatar-upload-btn" id="avatarUpload">
+                            <img src="картинки/иконки/camera.png" alt="Загрузить фото">
+                        </button>
+                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <div class="profile-username">
+                        <h2 id="usernameDisplay">Иван Петров</h2>
+                        <p class="user-email" id="profileUserEmail">ivan.petrov@email.com</p>
+                    </div>
+
+                    <nav class="profile-nav">
+                        <ul>
+                            <li><a href="#" class="nav-item active" data-tab="personal">Личные данные</a></li>
+                            <li><a href="#" class="nav-item" data-tab="orders">Мои заказы</a></li>
+                            <li><a href="#" class="nav-item" data-tab="favorites">Избранное</a></li>
+                            <li><a href="#" class="nav-item" data-tab="addresses">Адреса доставки</a></li>
+                            <li><a href="#" class="nav-item" data-tab="notifications">Уведомления</a></li>
+                            <li><a href="#" class="nav-item" data-tab="security">Безопасность</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Основной контент -->
+                <section class="profile-content">
+                    
+                    <!-- Личные данные -->
+                    <div class="tab-content active" id="personal">
+                        <div class="content-header">
+                            <h3>Личные данные</h3>
+                            <button class="btn btn-secondary" id="editProfileBtn">Редактировать</button>
+                        </div>
+                        
+                        <form class="profile-form" id="personalDataForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Имя</label>
+                                    <input type="text" id="firstName" value="Иван" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Фамилия</label>
+                                    <input type="text" id="lastName" value="Петров" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" value="ivan.petrov@email.com" readonly>
+                                </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="birthDate">Дата рождения</label>
+                                    <input type="date" id="birthDate" value="1990-05-15" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Пол</label>
+                                    <select id="gender" disabled>
+                                        <option value="male" selected>Мужской</option>
+                                        <option value="female">Женский</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions" style="display: none;" id="formActions">
+                                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                                <button type="button" class="btn btn-secondary" id="cancelEditBtn">Отмена</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Мои заказы -->
+                    <div class="tab-content" id="orders">
+                        <div class="content-header">
+                            <h3>Мои заказы</h3>
+                            <div class="orders-filter">
+                                <select id="orderStatusFilter">
+                                    <option value="all">Все заказы</option>
+                                    <option value="processing">В обработке</option>
+                                    <option value="shipped">Отправлен</option>
+                                    <option value="delivered">Доставлен</option>
+                                    <option value="cancelled">Отменен</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="orders-list" id="ordersListContainer">
+
+                        </div>
+                    </div>
+
+                    <!-- Остальные вкладки без изменений... -->
+                    <!-- Избранное -->
+                    <div class="tab-content" id="favorites">
+                        <div class="content-header">
+                            <h3>Избранные товары</h3>
+                            <button class="btn btn-secondary" id="clearFavoritesBtn">Очистить избранное</button>
+                        </div>
+
+                        <div class="favorites-grid">
+                            <div class="favorite-item">
+                                <img src="картинки/карусель/5w-30_ravenol.png" alt="Товар">
+                                <div class="favorite-info">
+                                    <h4>Масло Ravenol 5W-30</h4>
+                                    <p class="favorite-price">8700 ₽</p>
+                                    <div class="favorite-actions">
+                                        <button class="btn btn-primary">В корзину</button>
+                                        <button class="btn btn-outline favorite-remove">Удалить</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="favorite-item">
+                                <img src="картинки/карусель/правый_рычаг_мазда3.png" alt="Товар">
+                                <div class="favorite-info">
+                                    <h4>Правый рычаг Мазда 3</h4>
+                                    <p class="favorite-price">6500 ₽</p>
+                                    <div class="favorite-actions">
+                                        <button class="btn btn-primary">В корзину</button>
+                                        <button class="btn btn-outline favorite-remove">Удалить</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Адреса доставки -->
+                    <div class="tab-content" id="addresses">
+                        <div class="content-header">
+                            <h3>Адреса доставки</h3>
+                            <button class="btn btn-primary" id="addAddressBtn">Добавить адрес</button>
+                        </div>
+
+                        <div class="addresses-list">
+                            <div class="address-card">
+                                <div class="address-header">
+                                    <h4>Домашний адрес</h4>
+                                    <span class="address-default">Основной</span>
+                                </div>
+                                <p>г. Минск, ул. Ленина, д. 10, кв. 25</p>
+                                <p>Индекс: 220000</p>
+                                <div class="address-actions">
+                                    <button class="btn btn-outline">Редактировать</button>
+                                    <button class="btn btn-danger">Удалить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Уведомления -->
+                    <div class="tab-content" id="notifications">
+                        <div class="content-header">
+                            <h3>Настройки уведомлений</h3>
+                        </div>
+
+                        <div class="notifications-settings">
+                            <div class="notification-item">
+                                <div class="notification-info">
+                                    <h4>Email уведомления</h4>
+                                    <p>Получать уведомления о статусе заказов на email</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-info">
+                                    <h4>Рекламные уведомления</h4>
+                                    <p>Получать информацию о скидках и акциях</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Безопасность -->
+                    <div class="tab-content" id="security">
+                        <div class="content-header">
+                            <h3>Безопасность</h3>
+                        </div>
+                        <form class="profile-form" id="passwordChangeForm">
+                            <h4>Смена пароля</h4>
+                             <div class="form-group">
+                                <label for="currentPassword">Текущий пароль</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Новый пароль</label>
+                                <input type="password" id="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Подтвердите новый пароль</label>
+                                <input type="password" id="confirmPassword" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Сменить пароль</button>
+                        </form>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container footer__content">
+            <p>© 2025 Lime Details. Все права защищены.</p>
+            <a href="#">Политика конфиденциальности</a>
+        </div>
+    </footer>
+    
+    <!-- ИЗМЕНЕНО: Подключение скриптов -->
+    <script src="Lime Ditails(osn_js).js"></script> <!-- Общие скрипты сайта -->
+    <script src="userAuth.js"></script> <!-- Управляет виджетом в шапке -->
+    <script src="profile.js"></script> <!-- Логика ТОЛЬКО для страницы профиля -->
+</body>
+</html>

@@ -1,0 +1,389 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #121212 0%, #1b1c1c 50%, #222831 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+/* Canvas для эффектов - должен быть выше интерфейса */
+.click-spark-canvas {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 9999 !important; /* Поднимаем выше */
+}
+
+/* Шапка */
+.header {
+    background-color: #1b1c1c;
+    padding: 1rem 0;
+    border-bottom: 2px solid #4fa690;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 10;
+}
+
+.header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4fa690;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.logo a:hover {
+    color: #3e8e7e;
+}
+
+.back-link {
+    color: #ccc;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid #4fa690;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+}
+
+.back-link:hover {
+    background-color: #4fa690;
+    color: #121212;
+}
+
+/* Основной контент */
+.error-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 5;
+}
+
+.error-wrapper {
+    background-color: #1b1c1c;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 700px;
+    position: relative;
+    z-index: 5;
+}
+
+/* Левая панель с контентом ошибки */
+.error-content-panel {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+/* Контейнер для FuzzyText */
+.fuzzy-text-container {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+}
+
+#fuzzyCanvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.error-subtitle {
+    color: #4fa690;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.error-description {
+    color: #ccc;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.error-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4fa690, #3e8e7e);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 166, 144, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #4fa690;
+    border: 2px solid #4fa690;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    z-index: 10;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: #4fa690;
+    color: #121212;
+    transform: translateY(-2px);
+}
+
+.help-section {
+    text-align: left;
+    max-width: 350px;
+}
+
+.help-section h3 {
+    color: #4fa690;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.help-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.help-list li {
+    padding: 0.5rem 0;
+    color: #ccc;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+.help-list li::before {
+    content: '•';
+    color: #4fa690;
+    font-weight: bold;
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+}
+
+/* Правая панель с информацией */
+.error-info-panel {
+    background: linear-gradient(45deg, #4fa690, #3e8e7e);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #121212;
+    position: relative;
+    overflow: hidden;
+}
+
+.error-info-panel::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+    animation: float 20s infinite linear;
+    z-index: 1;
+}
+
+@keyframes float {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error-info-content {
+    position: relative;
+    z-index: 2;
+}
+
+.error-info-panel h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.error-info-panel p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.features-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(18, 18, 18, 0.2);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.features-list li::before {
+    content: '✓';
+    font-weight: bold;
+    margin-right: 1rem;
+    color: #121212;
+    font-size: 1.2rem;
+}
+
+.contact-info {
+    background-color: rgba(18, 18, 18, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.contact-info h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.contact-info a {
+    color: #121212;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .error-wrapper {
+        grid-template-columns: 1fr;
+        margin: 1rem;
+    }
+
+    .error-info-panel {
+        order: -1;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .error-content-panel {
+        padding: 2rem;
+    }
+
+    .error-subtitle {
+        font-size: 1.8rem;
+    }
+
+    .error-actions {
+        flex-direction: column;
+    }
+
+    .help-section {
+        text-align: center;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-content-panel {
+        padding: 1.5rem;
+    }
+
+    .error-info-panel {
+        padding: 1.5rem;
+    }
+
+    .fuzzy-text-container {
+        min-height: 120px;
+    }
+}
+
+/* Подвал */
+.footer {
+    background-color: #1b1c1c;
+    border-top: 1px solid #2d2d2d;
+    padding: 1rem 0;
+    text-align: center;
+    color: #ccc;
+    position: relative;
+    z-index: 5;
+}
